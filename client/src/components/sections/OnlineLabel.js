@@ -10,7 +10,7 @@ export default function OnlineLabel({ label }) {
       fontWeight={"semibold"}
       mx={"4"}
       mt={"4"}
-      mb={"1"}
+      mb={"4"}
       w={"50%"}
     >
       {label}

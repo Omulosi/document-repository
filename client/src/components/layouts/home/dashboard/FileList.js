@@ -1,4 +1,15 @@
-import { Flex, Text, UnorderedList, ListItem } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  UnorderedList,
+  ListItem,
+  Table,
+  Thead,
+  Th,
+  Tr,
+  Box,
+  Tbody,
+} from "@chakra-ui/react";
 import FileListItem from "components/items/FileListItem";
 import OnlineLabel from "components/sections/OnlineLabel";
 import React from "react";
@@ -13,39 +24,25 @@ export default function FileList({ files }) {
   }
 
   return (
-    <>
-      <UnorderedList listStyleType="none" ml="0" w="full" mt="2">
-        <OnlineLabel label={`Files — ${files?.length || 0}`} />
-        <ListItem p="4" mx="4" bg="brandGray.darker">
-          <Flex align="center" justify="space-between">
-            <Flex align="center" w={"full"} _hover={{ cursor: "pointer" }}>
-              <Text ml="2">Name</Text>
-            </Flex>
+    <Box w="full">
+      <OnlineLabel label={`Files — ${files?.length || 0}`} />
+      <Table w="full">
+        <Thead bg="brandGray.darker" p="2" mx="2">
+          <Tr>
+            <Th>Name</Th>
+            <Th>Access level</Th>
+            <Th>Last Modified</Th>
+            <Th>Uploaded by</Th>
+            <Th>Action</Th>
+          </Tr>
+        </Thead>
 
-            {/**  access level */}
-            <Flex w="full">
-              <Text>Access Level</Text>
-            </Flex>
-
-            {/** last modified */}
-            <Flex w="full">
-              <Text>Last Modified</Text>
-            </Flex>
-
-            {/** uploaded by*/}
-            <Flex w="full">
-              <Text>Uploaded by</Text>
-            </Flex>
-
-            <div>
-              <Text>Action</Text>
-            </div>
-          </Flex>
-        </ListItem>
-        {files?.map((file) => (
-          <FileListItem key={file.uuid} file={file} />
-        ))}
-      </UnorderedList>
-    </>
+        <Tbody>
+          {files?.map((file) => (
+            <FileListItem key={file.uuid} file={file} />
+          ))}
+        </Tbody>
+      </Table>
+    </Box>
   );
 }

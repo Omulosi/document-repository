@@ -55,7 +55,7 @@ export const scrollbarCss = {
     width: "10px",
   },
   "&::-webkit-scrollbar-thumb": {
-    background: "brandGray.darker",
+    background: "gray",
     borderRadius: "18px",
   },
 };

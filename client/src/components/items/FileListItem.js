@@ -11,6 +11,8 @@ import {
   Tag,
   TagLabel,
   useDisclosure,
+  Tr,
+  Td,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaEllipsisV, FaUser, FaEdit } from "react-icons/fa";
@@ -22,7 +24,6 @@ import { PictureAsPdf } from "@material-ui/icons";
 import FullScreenDialog from "../modals/FullScreenDialog";
 
 export default function FileListItem({ file }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
 
   const [open, setOpen] = React.useState(false);
@@ -37,57 +38,44 @@ export default function FileListItem({ file }) {
 
   return (
     <>
-      <ListItem
-        p="4"
-        mx="4"
+      <Tr
         _hover={{
           bg: "brandGray.dark",
-          borderRadius: "5px",
         }}
       >
-        <Flex align="center" justify="space-between">
-          {/**  name */}
-          <Flex
-            align="center"
-            w="full"
-            _hover={{ cursor: "pointer" }}
-            overflow="clip"
-          >
+        <Td>
+          <Flex align="center" w="full" _hover={{ cursor: "pointer" }}>
             <Icon as={PictureAsPdf} color="red.200" />
-            <Text ml="2" fontSize="sm" mr="2" pr="2">
+            <Text ml="2" fontSize="sm" mr="1" pr="1" maxWidth="64">
               {file?.name}
             </Text>
           </Flex>
+        </Td>
 
-          {/**  access level */}
+        <Td>
+          <Tag
+            size="md"
+            borderRadius="full"
+            variant="subtle"
+            colorScheme={"cyan"}
+          >
+            <TagLabel>{ACCESS_LEVELS[file?.access_level]}</TagLabel>
+          </Tag>
+        </Td>
 
-          <Flex w="full">
-            <Tag
-              size="md"
-              borderRadius="full"
-              variant="subtle"
-              colorScheme={"cyan"}
-            >
-              <TagLabel>{ACCESS_LEVELS[file?.access_level]}</TagLabel>
-            </Tag>
-          </Flex>
+        <Td>
+          <Text ml="2" fontSize="sm">
+            {dayjs(file?.updated).format(DATE_FORMAT)}
+          </Text>
+        </Td>
 
-          {/**  last modified */}
-          <Flex w="full">
-            <Text ml="2" fontSize="sm">
-              {dayjs(file?.updated).format(DATE_FORMAT)}
-            </Text>
-          </Flex>
+        <Td>
+          <Text ml="2" fontSize="sm">
+            {file?.uploaded_by?.email}
+          </Text>
+        </Td>
 
-          {/** uploaded by */}
-          <Flex w={"full"}>
-            <Text ml="2" fontSize="sm">
-              {file?.uploaded_by?.email}
-            </Text>
-          </Flex>
-
-          {/** Action / Menu */}
-
+        <Td>
           <Menu>
             <MenuButton
               as={IconButton}
@@ -112,8 +100,8 @@ export default function FileListItem({ file }) {
               </MenuItem>
             </MenuList>
           </Menu>
-        </Flex>
-      </ListItem>
+        </Td>
+      </Tr>
 
       {open && (
         <FullScreenDialog
