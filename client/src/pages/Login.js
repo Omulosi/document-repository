@@ -41,6 +41,8 @@ export default function Login() {
         setErrors({ email: "No user found" });
       } else if (err?.response?.status === 400) {
         setError(err.response?.data?.non_field_errors);
+      } else if (err?.response?.status === 500) {
+        setError("Server error");
       } else {
         setErrors(toErrorMap(err));
       }
