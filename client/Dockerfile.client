@@ -1,0 +1,14 @@
+FROM node:lts
+
+WORKDIR /client/
+
+COPY . /client/
+
+RUN ["yarn", ""]
+
+RUN ["pwd"]
+RUN ["ls", "-l"]
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
