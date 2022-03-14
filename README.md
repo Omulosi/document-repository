@@ -11,14 +11,19 @@ To get a local copy up and running, follow these steps.
 
 Clone the repo
 
-`git clone git@github.com:Omulosi/document-repository.git`
+`git clone https://github.com/Omulosi/document-repository.git`
 
 cd into the project repository
 
 `$ cd document-repository`
 
-Run the app using docker
+Startedart the app using docker.
 
 `$ docker-compose -f build/docker-compose.yml up`
 
-Navigate to this [link](http://localhost:3000)
+Navigate to the following [link](http://localhost:3000)
+
+Log in using the following credentials (This user was initially created on start up):
+- email: `admin@example.com`
+- password: `password`
+
