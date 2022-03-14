@@ -6,6 +6,7 @@ services:
     image: postgres:latest
     volumes:
       - "./db:/var/lib/postgresql/data"
+      - "../server:/server"
     environment:
       - POSTGRES_DB=document_repo
       - POSTGRES_USER=document_repo
@@ -28,6 +29,8 @@ services:
     build:
       context: "../client"
       dockerfile: Dockerfile.client
+    volumes:
+      - "../client/src:/client/src"
     ports:
       - "3000:3000"
     network_mode: host
