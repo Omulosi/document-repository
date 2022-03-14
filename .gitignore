@@ -1,7 +1,7 @@
 node_modules
 .DS_Store
 
-*db/*
+build/db/*
 *__pycache__/
 media/*
 *pyc
