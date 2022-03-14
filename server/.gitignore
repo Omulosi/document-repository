@@ -1,0 +1,6 @@
+db/*
+*__pycache__/
+media/*
+*pyc
+*pyo
+__pycache__

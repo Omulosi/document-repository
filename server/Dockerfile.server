@@ -1,0 +1,36 @@
+FROM python:3.8.10
+
+# ENV NGEO_DATABASE_URL=postgresql://document_repo:document_repo@127.0.0.1:5432/document_repo
+
+ENV DATABASE_URL=postgresql://document_repo:document_repo@127.0.0.1:5432/document_repo \
+  PYTHONFAULTHANDLER=1 \
+  PYTHONUNBUFFERED=1 \
+  PYTHONHASHSEED=random \
+  PIP_NO_CACHE_DIR=off \
+  PIP_DISABLE_PIP_VERSION_CHECK=on \
+  PIP_DEFAULT_TIMEOUT=100 \
+  POETRY_VERSION=1.1.13
+
+RUN pip install "poetry==$POETRY_VERSION"
+
+WORKDIR /server
+
+COPY poetry.lock pyproject.toml /server/
+
+RUN poetry config virtualenvs.create false \
+  && poetry install --no-interaction --no-ansi
+
+COPY . /server/
+
+COPY ./docker-entrypoint.sh /server/
+
+RUN pwd
+RUN ls -l
+
+RUN chmod +x /server/docker-entrypoint.sh
+
+ENTRYPOINT [ "/server/docker-entrypoint.sh" ]
+
+EXPOSE 8000
+
+# RUN gunicorn server.wsgi -b 0.0.0.0:8000
