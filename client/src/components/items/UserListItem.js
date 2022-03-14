@@ -11,6 +11,8 @@ import {
   MenuItem,
   Tag,
   TagLabel,
+  Tr,
+  Td,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaEllipsisV, FaUser } from "react-icons/fa";
@@ -21,16 +23,12 @@ export default function UserListItem({ user }) {
   const history = useHistory();
 
   return (
-    <ListItem
-      p="3"
-      mx="3"
+    <Tr
       _hover={{
         bg: "brandGray.dark",
-        borderRadius: "5px",
       }}
     >
-      <Flex align="center" justify="space-between">
-        {/** Name */}
+      <Td>
         <Flex align="center" w={"full"} _hover={{ cursor: "pointer" }}>
           <Avatar size="sm" src={user?.image}>
             <AvatarBadge
@@ -42,34 +40,31 @@ export default function UserListItem({ user }) {
             {user?.name}
           </Text>
         </Flex>
+      </Td>
 
-        {/**  access level */}
+      <Td>
+        <Tag
+          size="md"
+          borderRadius="full"
+          variant="subtle"
+          colorScheme={"cyan"}
+        >
+          <TagLabel>{ACCESS_LEVELS[user?.access_level]}</TagLabel>
+        </Tag>
+      </Td>
 
-        <Flex w="full">
-          <Tag
-            size="md"
-            borderRadius="full"
-            variant="subtle"
-            colorScheme={"cyan"}
-          >
-            <TagLabel>{ACCESS_LEVELS[user?.access_level]}</TagLabel>
-          </Tag>
-        </Flex>
+      <Td>
+        <Tag
+          size="md"
+          borderRadius="full"
+          variant="solid"
+          colorScheme={user.is_active ? "green" : "red"}
+        >
+          <TagLabel>{user.is_active ? "Active" : "Inactive"}</TagLabel>
+        </Tag>
+      </Td>
 
-        {/** status  */}
-        <Flex w="full">
-          <Tag
-            size="md"
-            borderRadius="full"
-            variant="solid"
-            colorScheme={user.is_active ? "green" : "red"}
-          >
-            <TagLabel>{user.is_active ? "Active" : "Inactive"}</TagLabel>
-          </Tag>
-        </Flex>
-
-        {/** menu */}
-
+      <Td>
         <Menu>
           <MenuButton
             as={IconButton}
@@ -87,7 +82,7 @@ export default function UserListItem({ user }) {
             </MenuItem>
           </MenuList>
         </Menu>
-      </Flex>
-    </ListItem>
+      </Td>
+    </Tr>
   );
 }
