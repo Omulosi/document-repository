@@ -4,11 +4,11 @@ cd /server/
 
 python manage.py collectstatic --noinput
 
-sleep 2
+sleep 3
 
 python manage.py migrate
 
-sleep 2
+sleep 3
 
 python manage.py initadmin
 
