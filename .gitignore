@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+
+*db/*
+*__pycache__/
+media/*
+*pyc
+*pyo
+__pycache__
