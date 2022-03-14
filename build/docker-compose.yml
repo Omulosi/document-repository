@@ -37,6 +37,7 @@ services:
     build:
       context: "../server"
       dockerfile: Dockerfile.server
+    # command: bash -c "python manage.py migrate && python manage.py initadmin"
     depends_on:
       - db
     environment:
