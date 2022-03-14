@@ -2,15 +2,13 @@ FROM node:lts
 
 WORKDIR /client
 
-COPY package.json /client/package.json
-RUN ["yarn", ""]
-
 COPY . /client/
 
+RUN yarn
 
-RUN ["pwd"]
-RUN ["ls", "-l"]
+RUN pwd
+RUN ls -l
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD yarn start
