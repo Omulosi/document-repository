@@ -59,7 +59,6 @@ export default function Login() {
           <Image src="/discord-logo.png" w="80px" />
         </Flex>
         <Flex mb="4" justify="center">
-          {/* <Image src="/logo.png" w="80px" />  */}
           <Text variant="small" color="red.300">
             {error}
           </Text>

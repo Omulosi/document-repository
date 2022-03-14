@@ -31,13 +31,10 @@ export default function Register() {
         history.push("/login");
       }
     } catch (err) {
-      let errors = toErrorMap(err);
-
-      if (!err.response) {
-        setError(err.message);
+      if (err?.response?.status === 400) {
+        setError(err.response?.data?.non_field_errors);
       } else {
-        setErrors(errors);
-        setError(null);
+        setErrors(toErrorMap(err));
       }
     }
   };
@@ -54,7 +51,6 @@ export default function Register() {
           <Image src="/discord-logo.png" w="80px" />
         </Flex>
         <Flex mb="4" justify="center">
-          {/* <Image src="/logo.png" w="80px" />  */}
           <Text variant="small" color="red.300">
             {error}
           </Text>
