@@ -23,7 +23,7 @@ export default function FullScreenDialog({ open, handleClose, file }) {
       onClose={handleClose}
       TransitionComponent={Transition}
     >
-      <div style={{ height: "100%", background: "#1b1c1d" }}>
+      <Box bgcolor="#1b1c1d" style={{ height: "100vh" }}>
         <AppBar style={{ position: "relative", background: "#202225" }}>
           <Toolbar>
             <IconButton
@@ -48,7 +48,7 @@ export default function FullScreenDialog({ open, handleClose, file }) {
         >
           <PdfViewer pdfFile={`${file?.document}`} />
         </Box>
-      </div>
+      </Box>
     </Dialog>
   );
 }

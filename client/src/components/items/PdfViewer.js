@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Document, Page, Outline } from "react-pdf";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
-import { Text, Flex, GridItem } from "@chakra-ui/react";
+import { Text, Flex, GridItem, Box } from "@chakra-ui/react";
 import { scrollbarCss } from "utils/theme";
 
 const file = "http://localhost:8000/media/documents/AJR.pdf";
@@ -28,24 +28,11 @@ export default function PdfViewer({ pdfFile }) {
   }
 
   return (
-    <GridItem
-      gridColumn={3}
-      gridRow={"2"}
-      bg="brandGray.light"
-      mr="auto"
-      ml="auto"
-      display="flex"
-      align="center"
-      justify="center"
-      overflowY="scroll"
-      css={scrollbarCss}
-      style={{}}
-    >
+    <Box css={scrollbarCss}>
       <Document
         file={pdfFile}
         options={{ workerSrc: "/pdf.worker.js" }}
         onLoadSuccess={onDocumentLoadSuccess}
-        className="pdf-document"
       >
         <Page pageNumber={pageNumber} />
       </Document>
@@ -56,7 +43,7 @@ export default function PdfViewer({ pdfFile }) {
           paddingLeft: "2em",
           paddingRight: "2em",
           position: "absolute",
-          bottom: "2%",
+          bottom: "1.5%",
           left: "50%",
           transform: "translateX(-50%)",
           background: "rgba(200,200,200, 0.9)",
@@ -82,7 +69,7 @@ export default function PdfViewer({ pdfFile }) {
           </button>
         </Flex>
       </div>
-    </GridItem>
+    </Box>
   );
 }
 
