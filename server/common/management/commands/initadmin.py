@@ -12,7 +12,11 @@ class Command(BaseCommand):
                 email = user[0]
                 password = user[1]
                 print('Creating account for admin: email (%s), password (%s)' % (email, password))
-                User.objects.create_superuser(email=email, password=password, role=User.ADMIN)
+                User.objects.create_superuser(
+                    email=email, 
+                    password=password, 
+                    role=User.ADMIN, 
+                    access_level=User.TOP_SECRET)
                 
         except Exception as e:
             print('Error creating admin account: ', e)
