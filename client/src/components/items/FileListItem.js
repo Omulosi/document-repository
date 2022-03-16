@@ -19,7 +19,6 @@ import { FaEllipsisV, FaUser, FaEdit } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 import { ACCESS_LEVELS, DATE_FORMAT } from "../../config";
-import ViewPdfModal from "../modals/ViewPdfModal";
 import { PictureAsPdf } from "@material-ui/icons";
 import FullScreenDialog from "../modals/FullScreenDialog";
 
