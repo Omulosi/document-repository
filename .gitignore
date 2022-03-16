@@ -7,3 +7,5 @@ media/*
 *pyc
 *pyo
 __pycache__
+file_drive_client
+file_drive_server

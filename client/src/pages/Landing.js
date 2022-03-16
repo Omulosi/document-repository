@@ -7,7 +7,7 @@ export default function Landing() {
     <LandingLayout>
       <Hero
         title="File Drive"
-        subtitle="Safely store and share your documents."
+        subtitle="A file management system"
         image="/landing-doc.jpeg"
         ctaText="Get Started"
         ctaLink="/register"
