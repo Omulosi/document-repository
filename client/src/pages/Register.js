@@ -12,7 +12,6 @@ import { Form, Formik } from "formik";
 import { Link as RLink, useHistory } from "react-router-dom";
 import InputField from "components/shared/InputField";
 import { register } from "api/handler/auth";
-import userStore from "stores/userStore";
 import toErrorMap from "utils/toErrorMap";
 import { RegisterSchema } from "validation/auth.schema";
 
@@ -21,13 +20,10 @@ export default function Register() {
 
   const history = useHistory();
 
-  const setUser = userStore((state) => state.setUser);
-
   const handleSubmit = async (values, { setErrors }) => {
     try {
       const { data } = await register(values);
       if (data) {
-        // setUser(data);
         history.push("/login");
       }
     } catch (err) {

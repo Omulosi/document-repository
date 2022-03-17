@@ -1,7 +1,4 @@
-export const HOST =
-  process.env.NODE_ENV === "production"
-    ? "https://file-drive-api.herokuapp.com"
-    : "http://localhost:8000";
+export const HOST = process.env.REACT_APP_API_HOST || "http://localhost:8000";
 
 export const ACCESS_LEVELS = {
   0: "Lowest",
@@ -13,4 +10,4 @@ export const ACCESS_LEVELS = {
 
 export const USER_ROLES = {};
 
-export const DATE_FORMAT = "DD MMM YYYY"; // dayjs 04 Jan 2020
+export const DATE_FORMAT = "DD MMM YYYY"; // dayjs: 04 Jan 2020
