@@ -172,7 +172,6 @@ DJOSER = {
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    # 'https://vehicle-tracker-uon.herokuapp.com'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -182,16 +181,16 @@ ADMINS = (
     )
 
 
-if not DEBUG:
-    #  Add configuration for static files storage using whitenoise
+# if not DEBUG:
+#     #  Add configuration for static files storage using whitenoise
 
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-    # Configure Django App for Heroku.
-    import django_on_heroku
-    django_on_heroku.settings(locals())
+#     # Configure Django App for Heroku.
+#     import django_on_heroku
+#     django_on_heroku.settings(locals())
 
-    import dj_database_url 
-    prod_db  =  dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(prod_db)
+#     import dj_database_url 
+#     prod_db  =  dj_database_url.config(conn_max_age=500)
+#     DATABASES['default'].update(prod_db)

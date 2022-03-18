@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getResource, updateResource } from "../fetchers";
 
 const getUser = async () => {
-  const data = await getResource("/auth/users/me/");
+  const data = await getResource("/api/auth/users/me/");
 
   return data;
 };

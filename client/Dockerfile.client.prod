@@ -4,6 +4,6 @@ WORKDIR /client
 
 COPY . /client/
 
-RUN yarn
+# RUN yarn
 
 RUN yarn build
