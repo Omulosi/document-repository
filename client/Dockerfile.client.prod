@@ -2,8 +2,6 @@ FROM node:16.14-alpine
 
 WORKDIR /client
 
-COPY . /client/
+COPY build/ /client/
 
-# RUN yarn
-
-RUN yarn build
+RUN ls -l
