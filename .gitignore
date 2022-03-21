@@ -9,3 +9,4 @@ media/*
 __pycache__
 file_drive_client
 file_drive_server
+build
