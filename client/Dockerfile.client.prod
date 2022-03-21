@@ -8,4 +8,4 @@ RUN yarn
 
 RUN yarn build
 
-# COPY build/ /client/
+COPY build/ /client/

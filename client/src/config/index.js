@@ -1,4 +1,6 @@
-export const HOST = process.env.REACT_APP_API_HOST || "http://localhost:8000";
+// export const HOST = process.env.REACT_APP_API_HOST || "http://localhost:8000";
+
+export const HOST = "http://localhost:8000";
 
 export const ACCESS_LEVELS = {
   0: "Lowest",
