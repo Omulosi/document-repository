@@ -42,6 +42,7 @@ services:
       dockerfile: Dockerfile.server.prod
     volumes:
       - backend_staticfiles:/server/staticfiles
+      - backend_media:/server/media
     depends_on:
       - db
     ports:
@@ -56,6 +57,7 @@ services:
       - "../nginx/file-drive.conf:/etc/nginx/conf.d/default.conf:ro"
       - frontend_build:/var/www/file_drive/build
       - backend_staticfiles:/var/www/file_drive/static
+      - backend_media:/var/www/file_drive/media
     depends_on:
       - backend
       - frontend
@@ -63,3 +65,4 @@ services:
 volumes:
   frontend_build:
   backend_staticfiles:
+  backend_media:

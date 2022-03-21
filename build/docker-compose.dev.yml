@@ -24,27 +24,27 @@ services:
   #     - "8080:8080"
   #   network_mode: host
 
-  # client:
-  #   container_name: document_repo_client
-  #   build:
-  #     context: "../client"
-  #     dockerfile: Dockerfile.client
-  #   volumes:
-  #     - "../client/src:/client/src"
-  #   ports:
-  #     - "3000:3000"
-  #   network_mode: host
+  client:
+    container_name: document_repo_client
+    build:
+      context: "../client"
+      dockerfile: Dockerfile.client.dev
+    volumes:
+      - "../client/src:/client/src"
+    ports:
+      - "3000:3000"
+    network_mode: host
 
-  # server:
-  #   container_name: document_repo_server
-  #   build:
-  #     context: "../server"
-  #     dockerfile: Dockerfile.server
-  #   # command: bash -c "python manage.py migrate && python manage.py initadmin"
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - DATABASE_URL=postgresql://document_repo:document_repo@127.0.0.1:5432/document_repo
-  #   ports:
-  #     - "8000:8000"
-  #   network_mode: host
+  server:
+    container_name: document_repo_server
+    build:
+      context: "../server"
+      dockerfile: Dockerfile.server.prod
+    # command: bash -c "python manage.py migrate && python manage.py initadmin"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://document_repo:document_repo@127.0.0.1:5432/document_repo
+    ports:
+      - "8000:8000"
+    network_mode: host
