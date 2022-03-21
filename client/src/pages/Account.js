@@ -29,12 +29,9 @@ export default function Account() {
 
   const updateMutation = useUpdateUser();
 
-  console.log({ user });
-
   const cache = useQueryClient();
   const logoutUser = userStore((state) => state.logout);
   const history = useHistory();
-  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   async function handleLogout() {
