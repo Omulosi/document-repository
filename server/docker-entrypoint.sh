@@ -1,17 +1,21 @@
 #!/bin/sh
 
-cd /server/
+until cd /server/
+do
+    echo "Waiting for server volume..."
+done
 
-python manage.py collectstatic --noinput
 
-sleep 3
+until ./manage.py migrate
+do
+    echo "Waiting for db to be ready..."
+    sleep 2
+done
 
-python manage.py migrate
+./manage.py collectstatic --noinput
 
-sleep 3
+./manage.py initadmin
 
-python manage.py initadmin
-
-gunicorn server.wsgi -b 0.0.0.0:8000
+gunicorn server.wsgi -b 0.0.0.0:8000 --workers 4 --threads 4
 
 exec "$@"
