@@ -2,6 +2,10 @@ FROM node:16.14-alpine
 
 WORKDIR /client
 
-COPY build/ /client/
+COPY ./ /client/
 
-RUN ls -l
+RUN yarn
+
+RUN yarn build
+
+# COPY build/ /client/
