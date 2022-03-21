@@ -153,17 +153,19 @@ export default function FileDetails() {
             </Formik>
           </Box>
           <Divider my={"4"} />
-          <Flex mt="4">
-            <span></span>
+          {isAdmin && (
+            <Flex mt="4">
+              <span></span>
 
-            <Button
-              colorScheme="red"
-              fontSize={"14px"}
-              onClick={() => setIsOpen(true)}
-            >
-              Delete File
-            </Button>
-          </Flex>
+              <Button
+                colorScheme="red"
+                fontSize={"14px"}
+                onClick={() => setIsOpen(true)}
+              >
+                Delete File
+              </Button>
+            </Flex>
+          )}
         </Box>
       </Box>
       {isOpen && (
