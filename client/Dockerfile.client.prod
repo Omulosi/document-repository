@@ -2,10 +2,11 @@ FROM node:16.14-alpine
 
 WORKDIR /client
 
+COPY package.json /client/
+COPY yarn.lock /client/
+
+RUN yarn install --production
+
 COPY ./ /client/
 
-RUN yarn
-
 RUN yarn build
-
-COPY build/ /client/
