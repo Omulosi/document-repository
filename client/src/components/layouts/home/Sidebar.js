@@ -1,4 +1,4 @@
-import { Box, GridItem, Text, UnorderedList } from "@chakra-ui/react";
+import { GridItem } from "@chakra-ui/react";
 import SidebarButton from "components/sections/SidebarButton";
 import React from "react";
 import AccountBar from "../AccountBar";
@@ -7,7 +7,7 @@ import { FiUsers, FiFile } from "react-icons/fi";
 import { useCurrentUser } from "../../../api/handler/users";
 
 export default function Sidebar() {
-  const { data: user, isLoading } = useCurrentUser();
+  const { data: user } = useCurrentUser();
 
   const isAdmin = user?.role === 1;
 

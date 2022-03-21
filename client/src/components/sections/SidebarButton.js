@@ -1,8 +1,6 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import homeStore from "stores/homeStore";
-import { PingIcon } from "components/shared/NotificationIcon";
 
 export default function SidebarButton({ linkTo = "", title = "", icon }) {
   const currentPath = `${linkTo}`;

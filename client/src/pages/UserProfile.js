@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Divider,
@@ -7,15 +6,11 @@ import {
   Heading,
   LightMode,
   Spacer,
-  Tooltip,
-  useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
 import { Form, Formik } from "formik";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import toErrorMap from "utils/toErrorMap";
-import ChangePasswordModal from "components/modals/ChangePasswordModal";
 import InputField from "components/shared/InputField";
 import SelectField from "../components/shared/SelectField";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";

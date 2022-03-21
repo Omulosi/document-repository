@@ -1,4 +1,4 @@
-import { Box, GridItem, UnorderedList, useDisclosure } from "@chakra-ui/react";
+import { Box, GridItem, useDisclosure } from "@chakra-ui/react";
 import AddFileModal from "components/modals/AddFileModal";
 import AddGuildIcon from "components/sections/AddGuildIcon";
 import HomeIcon from "components/sections/HomeIcon";
@@ -23,9 +23,6 @@ export default function GuildList() {
       zIndex={2}
     >
       <HomeIcon />
-      <UnorderedList listStyleType="none" ml="0">
-        guilds
-      </UnorderedList>
       {isAdmin && <AddGuildIcon onOpen={onOpen} />}
       {isOpen && <AddFileModal isOpen={isOpen} onClose={onClose} />}
       <Box h="20px" />

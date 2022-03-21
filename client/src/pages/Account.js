@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Divider,
@@ -7,14 +6,12 @@ import {
   Heading,
   LightMode,
   Spacer,
-  Tooltip,
   useDisclosure,
-  useToast,
   CircularProgress,
 } from "@chakra-ui/react";
 import { logout } from "api/handler/auth";
 import { Form, Formik } from "formik";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
 import userStore from "stores/userStore";

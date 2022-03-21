@@ -1,23 +1,14 @@
 import { Divider, Flex, Icon } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaFileArchive } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import homeStore from "stores/homeStore";
 import { ActiveGuildPill, HoverGuildPill } from "components/shared/GuildPills";
-import NotificationIcon from "components/shared/NotificationIcon";
 import StyledTooltip from "./StyledTooltip";
 
 export default function HomeIcon() {
   const location = useLocation();
-  const isActive = location.pathname === "/channels/me";
+  const isActive = location.pathname === "/home";
   const [isHover, setHover] = useState(false);
-
-  const notification = homeStore((state) => state.notifCount);
-  const reset = homeStore((state) => state.reset);
-
-  useEffect(() => {
-    if (isActive) reset();
-  });
 
   return (
     <StyledTooltip label={"Home"} position={"right"}>
@@ -45,15 +36,10 @@ export default function HomeIcon() {
             onMouseEnter={() => setHover(true)}
           >
             <Icon as={FaFileArchive} />
-            {notification > 0 && <NotificationIcon count={notification} />}
           </Flex>
         </Link>
         <Divider mt="2" w="40px" />
       </Flex>
     </StyledTooltip>
   );
-}
-
-function Logo() {
-  return <img src="/small-logo.png" style={{ padding: "5px" }} alt="logo" />;
 }

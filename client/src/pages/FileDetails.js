@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Divider,
@@ -7,24 +6,13 @@ import {
   Heading,
   LightMode,
   Spacer,
-  Tooltip,
-  useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
-import { getAccount, updateAccount } from "api/handler/account";
-import { logout } from "api/handler/auth";
 import { Form, Formik } from "formik";
-import React, { useRef, useState } from "react";
-import { useQuery, useQueryClient } from "react-query";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import userStore from "stores/userStore";
-import { aKey } from "utils/querykeys";
 import toErrorMap from "utils/toErrorMap";
-import ChangePasswordModal from "components/modals/ChangePasswordModal";
-import CropImageModal from "components/modals/CropImageModal";
 import InputField from "components/shared/InputField";
 import SelectField from "../components/shared/SelectField";
-import { UserSchema } from "validation/auth.schema";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../api/handler/users";
 import {

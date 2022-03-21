@@ -4,8 +4,6 @@ import { HOST } from "../config";
 
 const BASE_URL = HOST;
 
-console.log({ BASE_URL });
-
 export const api = () => {
   const token = localStorage.getItem("token");
 
