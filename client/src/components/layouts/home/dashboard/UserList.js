@@ -26,8 +26,8 @@ export default function UserList({ users }) {
         </Thead>
 
         <Tbody>
-          {users?.map((user) => (
-            <UserListItem key={user.id} user={user} />
+          {users?.map((user, ind) => (
+            <UserListItem key={`${ind}-${user?.id}`} user={user} />
           ))}
         </Tbody>
       </Table>
