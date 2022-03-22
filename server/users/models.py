@@ -7,8 +7,6 @@ from . import managers
 from .core import CoreModel
 
 
-
-
 class User(PermissionsMixin, CoreModel, AbstractBaseUser):
 
     # Access Levels

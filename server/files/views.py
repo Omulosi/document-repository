@@ -20,10 +20,12 @@ class FileListCreate(generics.ListCreateAPIView):
         user = self.request.user
         queryset = self.queryset.all()
 
+
         # Top secret user - view all files
         if user.access_level == User.TOP_SECRET:
             queryset = queryset.filter(access_level__lte=File.TOP_SECRET)
-        elif user.role == User.SECRET:
+
+        elif user.access_level == User.SECRET:
             queryset = queryset.filter(access_level__lte=File.SECRET)
 
         elif user.access_level == User.CONFIDENTIAL:
