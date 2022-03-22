@@ -29,16 +29,16 @@ services:
     ports:
       - "8000:8000"
 
-  frontend:
-    container_name: file_drive_client
-    build:
-      context: "../client"
-      dockerfile: Dockerfile.client.prod
-    volumes:
-      - "../client/src:/client/src"
-      - frontend_build:/client/build
-    ports:
-      - "3000:3000"
+  # frontend:
+  #   container_name: file_drive_client
+  #   build:
+  #     context: "../client"
+  #     dockerfile: Dockerfile.client.prod
+  #   volumes:
+  #     - "../client/src:/client/src"
+  #     - frontend_build:/client/build
+  #   ports:
+  #     - "3000:3000"
 
   nginx:
     container_name: file_drive_nginx
@@ -52,7 +52,7 @@ services:
       - backend_media:/var/www/file_drive/media
     depends_on:
       - backend
-      - frontend
+      # - frontend
 
 volumes:
   frontend_build:
