@@ -87,6 +87,7 @@ export default function FileDetails() {
                       label="name"
                       name="name"
                       autoComplete="name"
+                      isDisabled={!isAdmin}
                     />
 
                     <InputField
