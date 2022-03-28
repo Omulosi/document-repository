@@ -17,13 +17,6 @@ services:
       test: "exit 0"
     network_mode: host
 
-  # adminer:
-  #   container_name: file_adminer
-  #   image: adminer
-  #   ports:
-  #     - "8080:8080"
-  #   network_mode: host
-
   client:
     container_name: document_repo_client
     build:

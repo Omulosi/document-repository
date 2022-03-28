@@ -1,4 +1,4 @@
-FROM python:3.8.10-alpine
+FROM python:3.8.10
 
 ENV DATABASE_URL=postgresql://document_repo:document_repo@db:5432/document_repo \
   PYTHONFAULTHANDLER=1 \
