@@ -57,7 +57,7 @@ class UploadFiles(APIView):
 
             for file in files:
                 full_file_name = file.name
-                file_name, file_type = full_file_name.split('.')
+                file_name, file_type = full_file_name.rsplit('.', maxsplit=1)
                 query_string = file_name.split('-')[0].strip()
                 files_with_name_already_present = File.objects.filter(name__icontains=query_string).all()
                 
