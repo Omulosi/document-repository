@@ -34,6 +34,7 @@ export default function PdfViewer({ pdfFile }) {
         options={{ workerSrc: "/pdf.worker.js" }}
         onLoadSuccess={onDocumentLoadSuccess}
         onContextMenu={(e) => e.preventDefault()}
+        className="pdf-container"
       >
         <Page pageNumber={pageNumber} />
       </Document>
